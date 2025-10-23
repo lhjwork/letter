@@ -1,26 +1,153 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+.theme-custom {
+  /* gradient: 주 색(#E41E26) 과 같은 톤의 진한/밝은 변형으로 구성 */
+  --gradient: linear-gradient(to top left, #e41e26 0%, #e41e26 100%);
+
+  /* 배경은 기본적으로 흰색(요청) */
+  --background: #ffffff;
+  --foreground: #111827; /* 짙은 텍스트 */
+
+  /* 카드/팝오버 등은 배경 대비 약간의 음영 */
+  --card: #ffffff;
+  --card-foreground: #111827;
+  --popover: #ffffff;
+  --popover-foreground: #111827;
+
+  /* 메인 색상 (요청) */
+  --primary: #e41e26;
+  --primary-foreground: #ffffff;
+
+  /* primary 기반 변형 (버튼 호버/활성 등에 사용) */
+  --primary-600: #b2181b; /* 진한 변형 */
+  --primary-400: #ff6b63; /* 밝은 변형 */
+
+  /* 보조/어센트는 primary와 조화되는 중성톤으로 설정 */
+  --secondary: color-mix(in srgb, #e41e26 10%, #ffffff 90%); /* 연한 보조색 */
+  --secondary-foreground: #111827;
+
+  --accent: color-mix(in srgb, #e41e26 8%, #111827 92%);
+  --accent-foreground: #111827;
+
+  /* muted 계열 (기본 상태 텍스트/백그라운드 보조) */
+  --muted: #f3f4f6;
+  --muted-foreground: #6b7280;
+
+  /* destructive 등 기타 토큰 (기본 유지하거나 필요시 조절) */
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+
+  /* 테두리/입력/링 등 */
+  --border: #e6e9ee;
+  --input: #f8f9fb;
+  --ring: var(--primary-600);
+
+  --radius: 0.5rem;
+
+  /* .theme-custom이 적용될 때만 배경 그라디언트 사용 (기본은 흰색) */
+  background-image: var(--gradient);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* 기본값: 전역 루트는 배경 흰색으로 유지 */
+:root {
+  --radius: 0.65rem;
+
+  --background: #ffffff;
+  --foreground: #111827;
+
+  /* 메인 색상 고정 */
+  --primary: #e41e26;
+  --primary-foreground: #ffffff;
+
+  /* sidebar 등도 primary 기준으로 맞춤 */
+  --sidebar: #ffffff;
+  --sidebar-foreground: #111827;
+  --sidebar-primary: #e41e26;
+  --sidebar-primary-foreground: #ffffff;
+
+  /* 기본 gradient 변수 (없어도 .theme-custom 권장) */
+  --gradient: linear-gradient(to top left, #e41e26 0%, #e41e26 100%);
+}
+
+/* 다크 모드: 구조는 유지하되 배경/전경 반전, primary는 동일 유지 */
+.dark {
+  --background: #0b1220;
+  --foreground: #e6eef6;
+
+  --card: #0f1724;
+  --card-foreground: #e6eef6;
+  --popover: #0f1724;
+  --popover-foreground: #e6eef6;
+
+  --primary: #e41e26;
+  --primary-foreground: #ffffff;
+
+  --secondary: color-mix(in srgb, #e41e26 6%, #0f1724 94%);
+  --secondary-foreground: #e6eef6;
+
+  --muted: #0b1220;
+  --muted-foreground: #94a3b8;
+
+  --border: rgba(230, 233, 238, 0.06);
+  --input: rgba(230, 233, 238, 0.04);
+  --ring: #b2181b;
+
+  --gradient: linear-gradient(135deg, #7a1518 0%, #2b5f86 100%); /* 선택적 */
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
   }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  body {
+    @apply bg-background text-foreground;
+    /* 기본: 배경은 루트 변수를 따른다. .theme-custom 이면 그라디언트가 보임 */
+    background-image: none;
+    background-color: var(--background);
+  }
 }
