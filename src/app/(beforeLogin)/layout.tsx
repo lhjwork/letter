@@ -1,11 +1,12 @@
 import { ReactNode } from "react";
 
 type Props = { children: ReactNode; modal: ReactNode };
-export default async function Layout({ children }: Props) {
+export default async function Layout({ children, modal }: Props) {
   return (
     <div>
       beforeLogin layout
       {children}
+      {modal}
     </div>
   );
 }
