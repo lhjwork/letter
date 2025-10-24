@@ -162,4 +162,9 @@
     background-image: none;
     background-color: var(--background);
   }
+
+  button:not([disabled]),
+  [role="button"]:not([disabled]) {
+    cursor: pointer;
+  }
 }
