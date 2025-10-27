@@ -1,10 +1,11 @@
+import Header from "@/components/header/Header";
 import { ReactNode } from "react";
 
 type Props = { children: ReactNode };
 export default async function Layout({ children }: Props) {
   return (
     <div>
-      beforeLogin layout
+      <Header />
       {children}
     </div>
   );
