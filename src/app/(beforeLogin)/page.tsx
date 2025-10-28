@@ -1,11 +1,12 @@
-import { Button } from "@/components/ui/button";
+import { CarouselPlugin } from "@/components/carousel/Carousel";
 
 export default function Home() {
   return (
     <div>
       <main>
-        Home
-        <Button>Login</Button>
+        <div className="w-full justify-center flex p-8">
+          <CarouselPlugin />
+        </div>
       </main>
     </div>
   );
