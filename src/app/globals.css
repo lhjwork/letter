@@ -71,7 +71,13 @@
     transform: translateY(calc(-100% - var(--gap)));
     }
   }
-}
+  --animate-blink-cursor: blink-cursor 1.2s step-end infinite
+;
+  @keyframes blink-cursor {
+  0%, 49% {
+    opacity: 1;}
+  50%, 100% {
+    opacity: 0;}}}
 
 .theme-custom {
   /* gradient: 주 색(#E41E26) 과 같은 톤의 진한/밝은 변형으로 구성 */
