@@ -15,7 +15,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <div className="w-full sm:w-11/12 lg:w-4/5 xl:w-3/4 mx-auto  bg-amber-300">{children}</div>
+        <div className="w-full sm:w-11/12 lg:w-4/5 xl:w-3/4 mx-auto ">{children}</div>
       </body>
     </html>
   );

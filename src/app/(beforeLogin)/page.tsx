@@ -13,7 +13,7 @@ export default function Home() {
           {/* 서브타이틀 */}
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">당신을 위한 편지를 받아보세요</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl">소중한 사람에게 마음을 전하는 특별한 방법</p>
+            <p className="text-lg text-muted-foreground max-w-2xl">특별한 순간 나만을 위한 하루로 기록하는 방법</p>
           </div>
 
           {/* 편지지 스타일 */}
@@ -26,7 +26,7 @@ export default function Home() {
 
             {/* 편지지 내용 영역 */}
             <div
-              className="pl-16 pr-8 py-12 min-h-[500px] relative"
+              className="pl-16 pr-8 py-12 min-h-[250px] relative"
               style={{
                 backgroundImage: `repeating-linear-gradient(
                   transparent,
@@ -39,40 +39,31 @@ export default function Home() {
             >
               {/* 편지 헤더 */}
               <div className="mb-8">
-                <div className="text-right text-sm text-gray-500 mb-2">2025년 10월 28일</div>
-                <div className="text-left text-base text-gray-700 mb-8">소중한 당신에게,</div>
+                <div className="text-right text-sm text-gray-500 mb-2">20xx년 xx월 xx일</div>
+                <div className="text-left text-base text-gray-700 mb-8">To Letter</div>
               </div>
 
               {/* 타이핑 애니메이션 텍스트 */}
               <div className="relative z-10 text-lg leading-7 text-gray-800">
                 <TypingAnimation
                   className="text-lg leading-7 font-handwriting"
-                  duration={80}
+                  duration={100}
                   showCursor={true}
                   blinkCursor={true}
                   cursorStyle="line"
+                  loop={true}
                   style={{
                     fontFamily: "'Noto Sans KR', sans-serif",
                     lineHeight: "28px",
                   }}
                 >
-                  {`안녕하세요! 👋
-
-오늘도 좋은 하루 보내고 계신가요?
-
-이 편지를 통해 마음을 전하고 싶어서
-글을 써봅니다.
-
-소중한 당신에게 따뜻한 안부를
-전합니다. ✨
-
-언제나 건강하시고 행복하세요.`}
+                  안녕하세요! 축하받을 일이 생겨서 이렇게 신청합니다. 제 인생에서 중요한 순간을 함께 나누고 싶어요. 오늘은 정말 기쁜 하루였어요. 이런 소중한 순간을 편지로 남기고 싶습니다. ...
                 </TypingAnimation>
               </div>
 
               {/* 편지 마무리 */}
               <div className="absolute bottom-12 right-8 text-base text-gray-700">
-                <div className="text-right mt-16">보내는 사람 올림 💌</div>
+                <div className="text-right mt-16">사연 신청자 💌</div>
               </div>
             </div>
           </div>
