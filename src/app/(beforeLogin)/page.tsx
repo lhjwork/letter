@@ -26,7 +26,7 @@ export default function Home() {
 
             {/* 편지지 내용 영역 */}
             <div
-              className="pl-16 pr-8 py-12 min-h-[250px] relative"
+              className="pl-16 pr-8 py-12 min-h-[270px] relative"
               style={{
                 backgroundImage: `repeating-linear-gradient(
                   transparent,
@@ -62,8 +62,8 @@ export default function Home() {
               </div>
 
               {/* 편지 마무리 */}
-              <div className="absolute bottom-12 right-8 text-base text-gray-700">
-                <div className="text-right mt-16">사연 신청자 💌</div>
+              <div className="absolute bottom-8 right-8 text-base text-gray-700">
+                <div className="text-right mt-12">사연 신청자 💌</div>
               </div>
             </div>
           </div>

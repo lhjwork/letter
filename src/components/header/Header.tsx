@@ -1,13 +1,12 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import LoginModal from "@/app/(beforeLogin)/_component/LoginModal";
 
 const Header = () => {
-  const [isLoginDialogOpen, setIsLoginDialogOpen] = useState(false);
   return (
     <header className="border-b border-border bg-background">
       <Dialog>
