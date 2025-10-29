@@ -2,9 +2,12 @@
 
 import React from "react";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
+
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import LoginModal from "@/app/(beforeLogin)/_component/LoginModal";
+import LogoutButton from "@/app/(afterLogin)/_component/LogoutButton";
+import { RainbowButton } from "@/components/ui/rainbow-button";
+import { ShimmerButton } from "@/components/ui/shimmer-button";
 
 const Header = () => {
   return (
@@ -30,10 +33,18 @@ const Header = () => {
               </nav>
             </div>
 
+            <LogoutButton />
             {/* 우측: 로그인 버튼 */}
             <div className="flex items-center gap-4">
               <DialogTrigger asChild>
-                <Button>Login</Button>
+                <ShimmerButton
+                  shimmerColor="#e41e26"
+                  shimmerSize="0.1em"
+                  background="#fff"
+                  className="rounded-lg text-black font-semibold border-none border-gray-200 hover:border-gray-300 transition-colors"
+                >
+                  Login
+                </ShimmerButton>
               </DialogTrigger>
 
               <DialogContent>

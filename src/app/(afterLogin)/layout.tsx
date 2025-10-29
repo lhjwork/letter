@@ -1,3 +1,5 @@
+import Footer from "@/components/footer/Footer";
+import Header from "@/components/header/Header";
 import { ReactNode } from "react";
 // app 라우터의 layout은 기본적으로 서버 컴포넌트이며 async를 붙여 서버에서 데이터를 await할 수 있게 만듬.
 // 만약 레이아웃에서 fetch/DB 호출 등을 await하려면 async가 필요
@@ -7,7 +9,9 @@ export default async function AfterLoginLayout({ children }: { children: ReactNo
   return (
     <div>
       애프터 로그인 레이아웃
+      <Header />
       {children}
+      <Footer />
     </div>
   );
 }
