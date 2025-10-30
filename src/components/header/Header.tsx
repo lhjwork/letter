@@ -2,12 +2,11 @@
 
 import React from "react";
 import Link from "next/link";
-
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTrigger } from "@/components/ui/dialog";
 import LoginModal from "@/app/(beforeLogin)/_component/LoginModal";
 import LogoutButton from "@/app/(afterLogin)/_component/LogoutButton";
-import { RainbowButton } from "@/components/ui/rainbow-button";
 import { ShimmerButton } from "@/components/ui/shimmer-button";
+import { DialogTitle } from "@radix-ui/react-dialog";
 
 const Header = () => {
   return (
@@ -46,8 +45,15 @@ const Header = () => {
                   Login
                 </ShimmerButton>
               </DialogTrigger>
+              {/* 로고 */}
+              <div>
+                <div></div>
+              </div>
 
               <DialogContent>
+                <DialogHeader>
+                  <DialogTitle className=" text-center text-4xl font-bold text-primary-500">LETTER</DialogTitle>
+                </DialogHeader>
                 <LoginModal />
               </DialogContent>
             </div>

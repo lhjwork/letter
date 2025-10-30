@@ -3,11 +3,6 @@
 export default function LoginModal() {
   return (
     <div>
-      {/* 로고 */}
-      <div className="flex justify-center mb-6">
-        <div className="text-4xl font-bold text-primary-500">LETTER</div>
-      </div>
-
       {/* 제목 */}
       <h2 className="text-center text-xl font-bold text-gray-800 mb-2">Letter에 오신 것을 환영합니다!</h2>
       <p className="text-center text-sm text-gray-500 mb-8">소셜 계정으로 간편하게 로그인하세요</p>
