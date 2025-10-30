@@ -1,7 +1,12 @@
 import type { Metadata } from "next";
 import { Red_Hat_Display } from "next/font/google";
-
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
+import "dayjs/locale/ko";
 import "./globals.css";
+
+dayjs.locale("ko");
+dayjs.extend(relativeTime);
 
 // Red Hat Display 폰트 로드 - 모든 weight 포함
 const redHatDisplay = Red_Hat_Display({
