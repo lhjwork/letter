@@ -1,6 +1,15 @@
 "use client";
 
+import { signIn } from "next-auth/react";
+
 export default function LoginModal() {
+  const handleNaverLogin = () => {
+    signIn("naver", {
+      callbackUrl: "/", // 로그인 성공 후 리다이렉트할 페이지
+      redirect: true,
+    });
+  };
+
   return (
     <div>
       {/* 제목 */}
@@ -18,7 +27,7 @@ export default function LoginModal() {
         </button>
 
         {/* 네이버 로그인 */}
-        <button className="w-full flex items-center justify-center gap-3 px-6 py-3.5 bg-[#03C75A] hover:bg-[#02B350] rounded-lg font-medium text-white transition">
+        <button onClick={handleNaverLogin} className="w-full flex items-center justify-center gap-3 px-6 py-3.5 bg-[#03C75A] hover:bg-[#02B350] rounded-lg font-medium text-white transition">
           <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
             <path d="M16.273 12.845L7.376 0H0v24h7.726V11.156L16.624 24H24V0h-7.727v12.845z" />
           </svg>

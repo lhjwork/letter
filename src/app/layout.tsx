@@ -5,6 +5,7 @@ import relativeTime from "dayjs/plugin/relativeTime";
 import "dayjs/locale/ko";
 import "./globals.css";
 import { MSWProvider } from "@/components/msw/MSWComponent";
+import { SessionProvider } from "next-auth/react";
 
 dayjs.locale("ko");
 dayjs.extend(relativeTime);
@@ -35,9 +36,11 @@ export default function RootLayout({
   return (
     <html lang="ko" className={redHatDisplay.className}>
       <body>
-        <div className="w-full sm:w-11/12 lg:w-4/5 xl:w-3/4 mx-auto">
-          <MSWProvider>{children}</MSWProvider>
-        </div>
+        <SessionProvider>
+          <MSWProvider>
+            <div className="w-full sm:w-11/12 lg:w-4/5 xl:w-3/4 mx-auto">{children}</div>
+          </MSWProvider>
+        </SessionProvider>
       </body>
     </html>
   );
