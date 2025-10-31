@@ -4,9 +4,15 @@ import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import "dayjs/locale/ko";
 import "./globals.css";
+import { MSWProvider } from "@/components/msw/MSWComponent";
 
 dayjs.locale("ko");
 dayjs.extend(relativeTime);
+
+if (process.env.NEXT_RUNTIME === "nodejs" && process.env.NODE_ENV !== "production") {
+  const { server } = require("@/mocks/http");
+  server.listen();
+}
 
 // Red Hat Display 폰트 로드 - 모든 weight 포함
 const redHatDisplay = Red_Hat_Display({
@@ -29,7 +35,9 @@ export default function RootLayout({
   return (
     <html lang="ko" className={redHatDisplay.className}>
       <body>
-        <div className="w-full sm:w-11/12 lg:w-4/5 xl:w-3/4 mx-auto">{children}</div>
+        <div className="w-full sm:w-11/12 lg:w-4/5 xl:w-3/4 mx-auto">
+          <MSWProvider>{children}</MSWProvider>
+        </div>
       </body>
     </html>
   );
