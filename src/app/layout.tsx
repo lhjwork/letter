@@ -8,10 +8,10 @@ import { MSWProvider } from "@/components/msw/MSWComponent";
 
 dayjs.locale("ko");
 dayjs.extend(relativeTime);
-
 if (process.env.NEXT_RUNTIME === "nodejs" && process.env.NODE_ENV !== "production") {
-  const { server } = require("@/mocks/http");
-  server.listen();
+  import("@/app/mocks/http").then(({ server }) => {
+    server.listen();
+  });
 }
 
 // Red Hat Display 폰트 로드 - 모든 weight 포함

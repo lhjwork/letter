@@ -1,11 +1,11 @@
 "use client";
 
-import { handlers } from "@/mocks/handlers";
+import { handlers } from "@/app/mocks/handlers";
 import { Suspense, use } from "react";
 //   typeof window !== "undefined"; 윈도우가 undefined가 아닌 경우 즉 브라우저일때 임
 const mockingEnabledPromise =
   typeof window !== "undefined"
-    ? import("@/mocks/browser").then(async ({ default: worker }) => {
+    ? import("@/app/mocks/browser").then(async ({ default: worker }) => {
         if (process.env.NODE_ENV === "production") {
           return;
         }
