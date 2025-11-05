@@ -3,11 +3,16 @@
 import { signIn } from "next-auth/react";
 
 export default function LoginModal() {
-  const handleNaverLogin = () => {
-    signIn("naver", {
-      callbackUrl: "/", // 로그인 성공 후 리다이렉트할 페이지
-      redirect: true,
+  const handleNaverLogin = async () => {
+    console.log("[LoginModal] 네이버 로그인 시작");
+    // redirect를 true로 설정하여 NextAuth가 자동으로 리다이렉트하도록 함
+    await signIn("naver", {
+      callbackUrl: "/",
     });
+  };
+
+  const handleKakaoLogin = () => {
+    console.log("카카오 로그인 (미구현)");
   };
 
   return (
@@ -19,7 +24,7 @@ export default function LoginModal() {
       {/* 로그인 버튼들 */}
       <div className="space-y-3">
         {/* 카카오 로그인 */}
-        <button className="w-full flex items-center justify-center gap-3 px-6 py-3.5 bg-[#FEE500] hover:bg-[#FDD835] rounded-lg font-medium text-gray-900 transition">
+        <button onClick={handleKakaoLogin} className="w-full flex items-center justify-center gap-3 px-6 py-3.5 bg-[#FEE500] hover:bg-[#FDD835] rounded-lg font-medium text-gray-900 transition">
           <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
             <path d="M12 3C6.5 3 2 6.6 2 11c0 2.8 1.9 5.3 4.8 6.7-.2.7-.6 2.5-.7 2.9 0 .3.1.6.4.7.2.1.5 0 .7-.1.3-.2 3.5-2.3 4-2.7.5.1 1.1.1 1.7.1 5.5 0 10-3.6 10-8S17.5 3 12 3z" />
           </svg>

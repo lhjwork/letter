@@ -6,29 +6,28 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     NaverProvider({
       clientId: process.env.NAVER_CLIENT_ID!,
       clientSecret: process.env.NAVER_CLIENT_SECRET!,
-      profile(profile) {
-        return {
-          id: profile.id,
-          name: profile.name || profile.nickname,
-          email: profile.email,
-          image: profile.profile_image,
-        };
-      },
     }),
   ],
+  pages: {
+    signIn: "/",
+  },
   callbacks: {
     async jwt({ token, account, profile }) {
+      console.log("[Auth] JWT Callback - Account:", account);
+      console.log("[Auth] JWT Callback - Profile:", profile);
       if (account) {
         token.accessToken = account.access_token;
-        // 네이버에서 제공하지 않는 정보는 제거
       }
       return token;
     },
     async session({ session, token }) {
+      console.log("[Auth] Session Callback - Token:", token);
+      console.log("[Auth] Session Callback - Session:", session);
       if (token.accessToken) {
         session.accessToken = token.accessToken;
       }
       return session;
     },
   },
+  debug: true, // 디버깅 모드 활성화
 });
