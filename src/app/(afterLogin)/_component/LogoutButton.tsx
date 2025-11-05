@@ -1,5 +1,5 @@
 "use client";
-
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { signOut, useSession } from "next-auth/react";
 
@@ -22,10 +22,10 @@ export default function LogoutButton() {
     <div className="flex items-center gap-3">
       {/* 사용자 정보 표시 */}
       {session?.user && (
-        <div className="hidden sm:flex items-center gap-2">
-          {session.user.image && <img src={session.user.image} alt={session.user.name || "User"} className="w-8 h-8 rounded-full" />}
-          <span className="text-sm font-medium">{session.user.name}</span>
-        </div>
+        <Avatar>
+          {session.user.image ? <AvatarImage src={session.user.image} alt={session.user.name ?? "User"} /> : null}
+          <AvatarFallback>{session.user.name ?? session.user.email ?? "User"}</AvatarFallback>
+        </Avatar>
       )}
 
       {/* 로그아웃 버튼 */}

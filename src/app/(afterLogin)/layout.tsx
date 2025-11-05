@@ -10,7 +10,7 @@ export default async function AfterLoginLayout({ children }: { children: ReactNo
     <div>
       애프터 로그인 레이아웃
       <Header />
-      {children}
+      <div className="w-full sm:w-11/12 lg:w-4/5 xl:w-3/4 mx-auto">{children}</div>
       <Footer />
     </div>
   );

@@ -18,9 +18,9 @@ const Header = () => {
   }, [session, status]);
 
   return (
-    <header className="border-b border-border bg-background">
+    <header className="border-b border-border bg-background ">
       <Dialog>
-        <div className="w-full">
+        <div className=" w-4/5 flex mx-auto">
           <div className="flex items-center justify-between h-16 w-full">
             {/* 좌측: 로고 + 네비게이션 */}
             <div className="flex items-center gap-8">

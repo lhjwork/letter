@@ -1,5 +1,7 @@
 import { CarouselPlugin } from "@/components/carousel/Carousel";
+
 import { MarqueeDemo } from "@/components/Marquee/Marquee";
+import { Highlighter } from "@/components/ui/highlighter";
 import { TypingAnimation } from "@/components/ui/typing-animation";
 
 export default function Home() {
@@ -68,9 +70,14 @@ export default function Home() {
             </div>
           </div>
         </div>
-
         <div className="w-full justify-center flex px-48 mt-36">
           <MarqueeDemo />
+        </div>
+
+        <div className="w-full justify-center flex px-48 mt-36 mb-40">
+          <Highlighter as="h3" action="underline" color="#FF9800" className="text-2xl md:text-3xl font-bold mt-6 text-muted-foreground">
+            <span className="text-primary">Letter</span>와 함께하는 😉
+          </Highlighter>
         </div>
       </main>
     </div>

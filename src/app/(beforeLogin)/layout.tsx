@@ -7,7 +7,7 @@ export default async function Layout({ children }: Props) {
   return (
     <div>
       <Header />
-      {children}
+      <div className="w-full sm:w-11/12 lg:w-4/5 xl:w-3/4 mx-auto">{children}</div>
       <Footer />
     </div>
   );
